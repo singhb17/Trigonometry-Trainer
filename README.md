@@ -45,8 +45,5 @@ trig-trainer
 - This is a study tool; it does not automatically grade typed equations.
 - Matplotlib uses the TkAgg backend to integrate with Tkinter.
 
-- This project was developed with intentional use of AI-assisted programming tools. The goal was not code automation for speed, but exploration of how modern AI systems can be integrated into a real development workflow — including design decisions, refactoring, debugging, and modularization.
+- This project was developed with intentional use of AI-assisted programming tools. The goal was not code automation for speed, but exploration of how modern AI systems can be integrated into a real development workflow, including design decisions, refactoring, debugging, and modularization.
 All architectural decisions, logic validation, and final structure were reviewed and refined by the developer. This project reflects an ongoing effort to understand the practical limits, strengths, and trade-offs of AI-supported software development while building a usable application.
-
-## License
-Choose a license and add a `LICENSE` file (MIT, Apache-2.0, GPL-3.0, etc.).
