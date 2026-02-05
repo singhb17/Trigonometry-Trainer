@@ -49,20 +49,19 @@ def format_pi_multiple(x: float) -> str | None:
                 n_abs = abs(n)
                 if d == 1:
                     if n_abs == 1:
-                        return f"{sign}Ï€"
-                    return f"{sign}{n_abs}Ï€"
+                        return f"{sign}\\pi"
+                    return f"{sign}{n_abs}\\pi"
                 # d > 1
                 if n_abs == 1:
-                    return f"{sign}Ï€/{d}"
-                return f"{sign}{n_abs}Ï€/{d}"
+                    return f"{sign}\\pi/{d}"
+                return f"{sign}{n_abs}\\pi/{d}"
     return None
 
 
 def format_pi_tick(x: float) -> str:
     s = format_pi_multiple(x)
     if s is not None:
-        # Make it look like pi with minus sign where applicable.
-        return s.replace("pi", "I?")
+        return s
     return trim_float(x)
 
 
@@ -137,7 +136,7 @@ class TrigFunction:
         """Math-looking string for matplotlib (mathtext).
 
         Tkinter labels are plain text, but matplotlib will render $...$ nicely.
-        This keeps things simple: it uses unicode Ï€ and '/' fractions.
+        This keeps things simple: it uses \\pi mathtext and '/' fractions.
         """
         s = self.pretty().replace("y = ", "")
         # Wrap in mathtext to get typeset italics / spacing.

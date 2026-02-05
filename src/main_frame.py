@@ -63,7 +63,8 @@ class TrigTrainerApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Trig Sketching Trainer")
-        self.geometry("1100x680")
+        self.geometry("1200x900")
+        self.minsize(1100, 850)
 
         # State
         self.include_sin = tk.BooleanVar(value=True)
@@ -401,7 +402,7 @@ class TrigTrainerApp(tk.Tk):
         if self.prompt_type == "equation":
             self.prompt_lbl.configure(
                 text=(
-                    "Sketch this by hand. The equation is shown on the grid"
+                    "Sketch this by hand. The equation is shown on the grid.\n"
                     "Use 'Reveal Answer' to show/hide the graph."
                 )
             )
@@ -475,10 +476,10 @@ class TrigTrainerApp(tk.Tk):
             self.ax.axhline(0, **axis_style)
 
         # Helpful reference lines (only after Reveal Answer): midline + amplitude bounds
-        if show_guides and abs(tf.D) > 1e-12:
-            # Brighter, attention-grabbing guide lines
+        if show_guides:
             guide_style = dict(linestyle=":", linewidth=2.0, color=self.colors["guide"], alpha=0.95)
-            self.ax.axhline(tf.D, **guide_style)  # midline (now dotted too)
+            if abs(tf.D) > 1e-12:
+                self.ax.axhline(tf.D, **guide_style)  # midline (skip when it's the x-axis)
             if tf.kind in ("sin", "cos"):
                 self.ax.axhline(tf.D + abs(tf.A), **guide_style)
                 self.ax.axhline(tf.D - abs(tf.A), **guide_style)
